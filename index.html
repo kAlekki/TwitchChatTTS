@@ -69,6 +69,7 @@
           var userId = nextMessage[2]
 
           console.log(userId)
+          //assing voices by userid
           voiceNum = Math.floor((Number(userId.toString().slice(-2))) / 1.5626);
           console.log(voiceNum)
 
@@ -82,7 +83,7 @@
               })
               break;
             default:
-              responsiveVoice.speak(message, voices[voiceNum].name, {
+              responsiveVoice.speak(message, voices[6].name, {
                 pitch: 1,
                 rate: 1,
                 onstart: onStart,
