@@ -9,7 +9,6 @@
   <p>Voice numbers</p>
   <select id="voiceSelect"></select>
   <br>
-  <input type="text" id="channel" value="pocketkimchi"><input type="button" value="Connect!" onclick="">
   <script src="//cdn.tmijs.org/js/latest/1.x/tmi.min.js"></script>
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
   <script>
@@ -78,6 +77,7 @@
               responsiveVoice.speak(message, voices[15].name, {
                 pitch: 1.1,
                 rate: 1,
+                volume: 1,
                 onstart: onStart,
                 onend: onEnd
               })
@@ -86,6 +86,7 @@
               responsiveVoice.speak(message, voices[6].name, {
                 pitch: 1,
                 rate: 1,
+                volume: 1,
                 onstart: onStart,
                 onend: onEnd
               })
@@ -108,7 +109,9 @@
 
     function tts(channel, user, message, self) {
 
+    if(message.substr(0,1) != "!"){
       buffer.push([user["username"], message, Number(user["user-id"])])
+    }
 
     }
     client.connect();
